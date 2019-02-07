@@ -47,7 +47,18 @@ public class AppNewApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		UserMaster user1 = new UserMaster(null,"Danilo");
-		UserMaster user2 = new UserMaster(null,"Fernando");
+		UserMaster user2 = new UserMaster(null,"Fernando1");
+		UserMaster user3 = new UserMaster(null,"Fernando2");
+		UserMaster user4 = new UserMaster(null,"Fernando3");
+		UserMaster user5 = new UserMaster(null,"Fernando4");
+		UserMaster user6 = new UserMaster(null,"Fernando5");
+		UserMaster user7 = new UserMaster(null,"Fernando6");
+		UserMaster user8 = new UserMaster(null,"Fernando7");
+		UserMaster user9 = new UserMaster(null,"Fernando8");
+		UserMaster user10 = new UserMaster(null,"Fernando9");
+		UserMaster user11= new UserMaster(null,"Fernando10");
+		UserMaster user12 = new UserMaster(null,"Fernando11");
+		
 		
 		Kid kid1 = new Kid(null,"Fulano",12,0.0);
 		Kid kid2 = new Kid(null,"Sicrano",13,0.0);
@@ -60,7 +71,7 @@ public class AppNewApplication implements CommandLineRunner {
 		kid2.setUserMaster(user1);
 		kid3.setUserMaster(user2);
 		
-		userRepository.saveAll(Arrays.asList(user1,user2));
+		userRepository.saveAll(Arrays.asList(user1,user2, user3,user4,user5,user6,user7,user8,user9,user10,user11,user12));
 		kidRepository.saveAll(Arrays.asList(kid1,kid2,kid3));
 		
 		

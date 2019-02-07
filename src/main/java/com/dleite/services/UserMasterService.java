@@ -5,9 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.dleite.domain.UserMaster;
+import com.dleite.dto.UserMasterDTO;
 import com.dleite.repositories.UserMasterRepository;
 import com.dleite.services.exception.DataIntegrityException;
 import com.dleite.services.exception.ObjectNotFoundException;
@@ -43,10 +47,18 @@ public class UserMasterService {
 		}
 		
 	}
-	
+	 
 	public List<UserMaster> findAll(){
 		return repository.findAll();
 	}
 	
+	public Page<UserMaster> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction),orderBy);
+		return repository.findAll(pageRequest);
+	}
+	
+	public UserMaster fromDTO(UserMasterDTO objDTO) {
+		return new UserMaster(objDTO.getId(),objDTO.getName());
+	}
 	
 }
